@@ -28,8 +28,11 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-class Solution(object):      
+class Solution(object):
     def max_depth(self, root):
+        # ====================
+        #    BFS(队列)（层序遍历）
+        # ====================
         if not root:
             return 0
         seq = [root]
@@ -44,6 +47,13 @@ class Solution(object):
             seq = tmp
             res += 1
         return res
+        # =====================
+        #     DFS(递归)（后序遍历）
+        # =====================
+        if not root:
+            return 0
+        else:
+            return max(self.max_depth(root.left), self.max_depth(root.right)) + 1
 
 if __name__ == "__main__":
     s = Solution()

@@ -42,13 +42,16 @@ class TreeNode(object):
 class Solution(object):
     def jinxiang(self, root):
         if not root:
-            return
+            return None
         else:
             seq = [root]
             while seq:
                 for node in seq:
-                    tmp = []
-                    node.left, node.right = node.right, node.left
+                    tp = TreeNode()
+                    tp = node.left
+                    node.left = node.right
+                    node right = tp
+                    # node.left, node.right = node.right, node.left
                     tmp.append(node.left)
                     tmp.append(node.right)
                 seq = tmp
